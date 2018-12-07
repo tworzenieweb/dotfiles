@@ -1,0 +1,27 @@
+# /home/luke/.config/tmuxinator/jobleads.yml
+
+name: jobleads
+root: ~/jlcode
+
+on_project_first_start: console start
+on_project_exit: console stop
+
+tmux_options: -u
+
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - phpunit:
+          - printf '\033]2;%s\033\\' 'phpunit'
+          - sleep 10
+          - console phpunit
+        - ems:
+          - printf '\033]2;%s\033\\' 'EMS'
+          - cd module/EmailMarketingSuite/src-frontend/Editor
+          - npm run dev
+        - ant:
+          - printf '\033]2;%s\033\\' 'ANT'
+          - console ant update
+  - logs: console logs
