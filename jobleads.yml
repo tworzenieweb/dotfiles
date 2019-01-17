@@ -3,7 +3,7 @@
 name: jobleads
 root: ~/jlcode
 
-on_project_first_start: console start
+on_project_first_start: console start && console ant remove_lock_files
 on_project_exit: console stop
 
 tmux_options: -u
@@ -22,6 +22,6 @@ windows:
           - cd module/EmailMarketingSuite/src-frontend/Editor
           - npm run dev
         - ant:
-          - printf '\033]2;%s\033\\' 'ANT'
+          - printf '\033]2;%s\033\\' 'CLI'
           - console ant update
   - logs: console logs
